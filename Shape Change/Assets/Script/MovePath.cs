@@ -5,6 +5,8 @@ using UnityEngine;
 public class MovePath : MonoBehaviour
 {
     public float speed;
+
+    private float boundry = 170;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,6 +16,10 @@ public class MovePath : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(Vector3.left * speed * Time.deltaTime);
+        transform.Translate(Vector3.right * speed * Time.deltaTime);
+        if (transform.position.x > boundry)
+        {
+            Destroy(gameObject);
+        }
     }
 }
